@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087c59">
-<meta name="description" content="Kamal Sons Pharmacy - Your Health Advisor. Order medicines and healthcare products in Lahore through WhatsApp.">
+<meta name="description" content="Kamal Sons Pharmacy - Your Health Advisor. Explore healthcare products, order through WhatsApp and read helpful pharmacy and health guides in Lahore.">
 <title>Kamal Sons Pharmacy | Your Health Advisor</title>
 
 <style>
@@ -41,12 +41,27 @@ nav a{color:white;text-decoration:none;font-size:14px}
 .form textarea{min-height:85px;resize:vertical}
 .form button{width:100%;background:#087c59;color:white;border:0;padding:14px;border-radius:7px;margin-top:13px;font-size:16px;font-weight:bold}
 .info{background:#e0f4eb;border-radius:10px;padding:18px;line-height:1.8}
+
+/* Health Guides */
+.guides{display:grid;grid-template-columns:1fr;gap:15px}
+.guide-card{background:white;padding:20px;border-radius:10px;box-shadow:0 2px 9px #0000000d;border:1px solid #e3eee8}
+.guide-icon{font-size:35px;margin-bottom:10px}
+.guide-card h3{color:#075d43;margin-bottom:9px;font-size:18px}
+.guide-card p{font-size:14px;color:#68766f;line-height:1.7}
+.guide-link{display:inline-block;margin-top:12px;color:#087c59;font-weight:bold;text-decoration:none}
+.guide-link:hover{text-decoration:underline}
+
 footer{background:#064b37;color:white;text-align:center;padding:23px 15px;line-height:1.8;font-size:14px}
 footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
 .footer-links{margin-top:12px}
 .empty{text-align:center;color:#777;padding:15px}
-@media(min-width:650px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(min-width:900px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:650px){
+.products{grid-template-columns:repeat(3,minmax(0,1fr))}
+.guides{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:900px){
+.products{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
 </style>
 </head>
 
@@ -61,6 +76,7 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
 <nav>
   <a href="#home">Home</a>
   <a href="#products">Products</a>
+  <a href="#guides">Health Guides</a>
   <a href="#cart">Cart</a>
   <a href="contact.html">Contact</a>
   <a href="about.html">About Us</a>
@@ -74,6 +90,26 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
   <p>Order medicines and healthcare products conveniently through WhatsApp.</p>
   <p>Serving Lahore with care and convenience.</p>
   <a class="btn" href="#products">Explore Products</a>
+</section>
+
+<!-- Health Information Guides -->
+<section class="section" id="guides">
+  <h2>📚 Health Information & Pharmacy Guides</h2>
+
+  <div class="guides">
+    <div class="guide-card">
+      <div class="guide-icon">💊</div>
+      <h3>How to Store Medicines Safely at Home</h3>
+      <p>
+        Learn how to protect medicines from heat, sunlight and moisture,
+        understand refrigeration instructions, check expiry dates and
+        keep medicines safely away from children.
+      </p>
+      <a class="guide-link" href="medicine-storage-guide.html">
+        Read Article →
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="products">
@@ -132,6 +168,7 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
     <a href="terms.html">Terms & Conditions</a>
     <a href="delivery.html">Delivery & Return Policy</a>
     <a href="contact.html">Contact Us</a>
+    <a href="medicine-storage-guide.html">Health Guide</a>
   </div>
 </footer>
 
