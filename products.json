@@ -1,0 +1,111 @@
+
+[
+  {
+    "id": 1,
+    "name": "Panadol",
+    "category": "Medicines",
+    "emoji": "💊",
+    "description": "Pain and fever relief. Pack size subject to confirmation.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Disprin",
+    "category": "Medicines",
+    "emoji": "💊",
+    "description": "Pain relief product. Availability subject to confirmation.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Calpol",
+    "category": "Baby Care",
+    "emoji": "🧴",
+    "description": "Children's fever medicine. Ask pharmacy to confirm the suitable product.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "ORS",
+    "category": "Medicines",
+    "emoji": "🥤",
+    "description": "Oral rehydration salts. Product availability subject to confirmation.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 5,
+    "name": "Vitamin D",
+    "category": "Vitamins",
+    "emoji": "☀️",
+    "description": "Vitamin supplement. Brand and pack size to be confirmed.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 6,
+    "name": "Multivitamins",
+    "category": "Vitamins",
+    "emoji": "🍊",
+    "description": "Multivitamin products. Ask for available brands.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 7,
+    "name": "Baby Diapers",
+    "category": "Baby Care",
+    "emoji": "👶",
+    "description": "Baby care products. Sizes and brands subject to availability.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 8,
+    "name": "Baby Wipes",
+    "category": "Baby Care",
+    "emoji": "🧻",
+    "description": "Baby hygiene products. Availability subject to confirmation.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 9,
+    "name": "Hand Sanitizer",
+    "category": "Personal Care",
+    "emoji": "🧴",
+    "description": "Personal hygiene product. Available brands to be confirmed.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 10,
+    "name": "Face Wash",
+    "category": "Personal Care",
+    "emoji": "🫧",
+    "description": "Personal care product. Ask about available brands.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 11,
+    "name": "Thermometer",
+    "category": "Personal Care",
+    "emoji": "🌡️",
+    "description": "Healthcare equipment. Type and availability to be confirmed.",
+    "price": 0,
+    "available": true
+  },
+  {
+    "id": 12,
+    "name": "Blood Pressure Monitor",
+    "category": "Personal Care",
+    "emoji": "🩺",
+    "description": "BP monitoring equipment. Ask for available models.",
+    "price": 0,
+    "available": true
+  }
+]
