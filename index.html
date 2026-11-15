@@ -30,19 +30,24 @@ nav a{color:white;text-decoration:none;font-size:14px}
 .product{background:white;border-radius:10px;padding:15px;box-shadow:0 2px 9px #0000000d}
 .product .emoji{font-size:35px;margin-bottom:9px}
 .product h3{font-size:16px;margin-bottom:7px}
-.product p{font-size:13px;color:#68766f;line-height:1.4}
+.product p{font-size:13px;color:#68766f;line-height:1.5}
 .price{font-weight:bold;color:#087c59;margin-top:10px}
+.stock{font-size:12px;margin-top:6px;color:#087c59}
+.stock.out{color:#b00020}
 .product button{width:100%;background:#087c59;color:white;border:0;border-radius:6px;padding:10px;margin-top:10px;cursor:pointer}
+.product button:disabled{background:#999;cursor:not-allowed}
 .cart{background:white;border-radius:10px;padding:17px;box-shadow:0 2px 9px #0000000d}
-.cart-item{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #eee;font-size:14px}
-.cart-item button{border:0;background:#ffe8e8;color:#b00020;padding:5px 8px;border-radius:4px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #eee;font-size:14px}
+.cart-item button{border:0;background:#ffe8e8;color:#b00020;padding:7px 9px;border-radius:4px}
+.cart-item-info{flex:1}
+.cart-item small{display:block;color:#68766f;margin-top:4px}
+.quantity{display:flex;align-items:center;gap:7px;margin-top:7px}
+.quantity button{padding:4px 9px;border:0;border-radius:4px;background:#e0f4eb;color:#075d43}
 .cart-total{font-size:19px;font-weight:bold;text-align:right;margin-top:15px;color:#087c59}
 .form input,.form textarea{width:100%;padding:12px;border:1px solid #ccd9d2;border-radius:7px;margin-top:10px;font-size:15px}
 .form textarea{min-height:85px;resize:vertical}
 .form button{width:100%;background:#087c59;color:white;border:0;padding:14px;border-radius:7px;margin-top:13px;font-size:16px;font-weight:bold}
 .info{background:#e0f4eb;border-radius:10px;padding:18px;line-height:1.8}
-
-/* Health Guides */
 .guides{display:grid;grid-template-columns:1fr;gap:15px}
 .guide-card{background:white;padding:20px;border-radius:10px;box-shadow:0 2px 9px #0000000d;border:1px solid #e3eee8}
 .guide-icon{font-size:35px;margin-bottom:10px}
@@ -50,11 +55,11 @@ nav a{color:white;text-decoration:none;font-size:14px}
 .guide-card p{font-size:14px;color:#68766f;line-height:1.7}
 .guide-link{display:inline-block;margin-top:12px;color:#087c59;font-weight:bold;text-decoration:none}
 .guide-link:hover{text-decoration:underline}
-
 footer{background:#064b37;color:white;text-align:center;padding:23px 15px;line-height:1.8;font-size:14px}
 footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
 .footer-links{margin-top:12px}
 .empty{text-align:center;color:#777;padding:15px}
+.loading{text-align:center;padding:20px;color:#68766f}
 @media(min-width:650px){
 .products{grid-template-columns:repeat(3,minmax(0,1fr))}
 .guides{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -94,45 +99,27 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
 
 <section class="section" id="guides">
   <h2>📚 Health Information & Pharmacy Guides</h2>
-
   <div class="guides">
 
     <div class="guide-card">
       <div class="guide-icon">💊</div>
       <h3>How to Store Medicines Safely at Home</h3>
-      <p>
-        Learn how to protect medicines from heat, sunlight and moisture,
-        understand refrigeration instructions, check expiry dates and
-        keep medicines safely away from children.
-      </p>
-      <a class="guide-link" href="medicine-storage-guide.html">
-        Read Article →
-      </a>
+      <p>Learn how to protect medicines from heat, sunlight and moisture, understand refrigeration instructions, check expiry dates and keep medicines safely away from children.</p>
+      <a class="guide-link" href="medicine-storage-guide.html">Read Article →</a>
     </div>
 
     <div class="guide-card">
       <div class="guide-icon">📋</div>
       <h3>How to Read Medicine Labels and Expiry Dates</h3>
-      <p>
-        Understand medicine names, active ingredients, strengths,
-        dosage instructions, warnings, batch numbers and expiry dates.
-      </p>
-      <a class="guide-link" href="medicine-label-expiry-guide.html">
-        Read Article →
-      </a>
+      <p>Understand medicine names, active ingredients, strengths, dosage instructions, warnings, batch numbers and expiry dates.</p>
+      <a class="guide-link" href="medicine-label-expiry-guide.html">Read Article →</a>
     </div>
 
     <div class="guide-card">
       <div class="guide-icon">🛡️</div>
       <h3>Common Medicine Safety Mistakes to Avoid</h3>
-      <p>
-        Learn about common medicine safety mistakes, including sharing
-        medicines, duplicate ingredients, incorrect use, unsafe storage
-        and accidental overdose.
-      </p>
-      <a class="guide-link" href="medicine-safety-mistakes.html">
-        Read Article →
-      </a>
+      <p>Learn about common medicine safety mistakes, including sharing medicines, duplicate ingredients, incorrect use, unsafe storage and accidental overdose.</p>
+      <a class="guide-link" href="medicine-safety-mistakes.html">Read Article →</a>
     </div>
 
   </div>
@@ -143,14 +130,16 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
   <input class="search" id="search" type="search" placeholder="Search medicines or products...">
 
   <div class="categories">
-    <button class="active" onclick="filterProducts('All',this)">All</button>
-    <button onclick="filterProducts('Medicines',this)">Medicines</button>
-    <button onclick="filterProducts('Baby Care',this)">Baby Care</button>
-    <button onclick="filterProducts('Vitamins',this)">Vitamins</button>
-    <button onclick="filterProducts('Personal Care',this)">Personal Care</button>
+    <button class="active" data-category="All" onclick="filterProducts('All',this)">All</button>
+    <button data-category="Medicines" onclick="filterProducts('Medicines',this)">Medicines</button>
+    <button data-category="Baby Care" onclick="filterProducts('Baby Care',this)">Baby Care</button>
+    <button data-category="Vitamins" onclick="filterProducts('Vitamins',this)">Vitamins</button>
+    <button data-category="Personal Care" onclick="filterProducts('Personal Care',this)">Personal Care</button>
   </div>
 
-  <div class="products" id="productList"></div>
+  <div class="products" id="productList">
+    <p class="loading">Loading products...</p>
+  </div>
 </section>
 
 <section class="section" id="cart">
@@ -161,8 +150,8 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
 
     <div class="form">
       <h3 style="margin-top:20px">Customer Details</h3>
-      <input id="customerName" placeholder="Your Full Name" required>
-      <input id="customerPhone" type="tel" placeholder="Your Phone Number" required>
+      <input id="customerName" placeholder="Your Full Name" autocomplete="name" required>
+      <input id="customerPhone" type="tel" placeholder="Your Phone Number" autocomplete="tel" required>
       <textarea id="customerAddress" placeholder="Complete Delivery Address in Lahore" required></textarea>
       <textarea id="customerNotes" placeholder="Additional instructions (optional)"></textarea>
       <button onclick="placeOrder()">Order on WhatsApp</button>
@@ -201,79 +190,206 @@ footer a{color:white;text-decoration:none;margin:5px 9px;display:inline-block}
 </footer>
 
 <script>
+"use strict";
+
 const WHATSAPP_NUMBER = "923183018805";
+const PRODUCTS_FILE = "products.json";
 
-const products = [
-  {name:"Panadol",category:"Medicines",emoji:"💊",description:"Pain and fever relief. Availability and pack size subject to confirmation.",price:0},
-  {name:"Disprin",category:"Medicines",emoji:"💊",description:"Pain relief product. Availability subject to confirmation.",price:0},
-  {name:"Calpol",category:"Baby Care",emoji:"🧴",description:"Children's fever medicine. Ask pharmacy to confirm suitable product.",price:0},
-  {name:"ORS",category:"Medicines",emoji:"🥤",description:"Oral rehydration salts. Product availability subject to confirmation.",price:0},
-  {name:"Vitamin D",category:"Vitamins",emoji:"☀️",description:"Vitamin supplement. Brand and pack size to be confirmed.",price:0},
-  {name:"Multivitamins",category:"Vitamins",emoji:"🍊",description:"Multivitamin products. Ask for available brands.",price:0},
-  {name:"Baby Diapers",category:"Baby Care",emoji:"👶",description:"Baby care products. Sizes and brands subject to availability.",price:0},
-  {name:"Baby Wipes",category:"Baby Care",emoji:"🧻",description:"Baby hygiene products. Availability subject to confirmation.",price:0},
-  {name:"Hand Sanitizer",category:"Personal Care",emoji:"🧴",description:"Personal hygiene product. Available brands to be confirmed.",price:0},
-  {name:"Face Wash",category:"Personal Care",emoji:"🫧",description:"Personal care product. Ask about available brands.",price:0},
-  {name:"Thermometer",category:"Personal Care",emoji:"🌡️",description:"Healthcare equipment. Type and availability to be confirmed.",price:0},
-  {name:"Blood Pressure Monitor",category:"Personal Care",emoji:"🩺",description:"BP monitoring equipment. Ask for available models.",price:0}
-];
-
+let products = [];
 let cart = [];
 let activeCategory = "All";
 
-function renderProducts(){
-  const search = document.getElementById("search").value.toLowerCase();
+function escapeHTML(value){
+  return String(value ?? "").replace(/[&<>"']/g, function(char){
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[char];
+  });
+}
+
+function money(amount){
+  return "Rs. " + Number(amount).toLocaleString("en-PK");
+}
+
+async function loadProducts(){
   const list = document.getElementById("productList");
+
+  try{
+    const response = await fetch(PRODUCTS_FILE + "?v=" + Date.now(), {
+      cache:"no-store"
+    });
+
+    if(!response.ok){
+      throw new Error("Products file could not be loaded.");
+    }
+
+    const data = await response.json();
+
+    if(!Array.isArray(data)){
+      throw new Error("Products file format is incorrect.");
+    }
+
+    products = data.filter(p =>
+      p &&
+      Number.isFinite(Number(p.id)) &&
+      typeof p.name === "string" &&
+      typeof p.category === "string"
+    ).map(p => ({
+      id:Number(p.id),
+      name:p.name,
+      category:p.category,
+      emoji:p.emoji || "💊",
+      description:p.description || "",
+      price:Math.max(0, Number(p.price) || 0),
+      available:p.available !== false
+    }));
+
+    renderProducts();
+    renderCart();
+
+  }catch(error){
+    list.innerHTML =
+      '<p class="empty">Products could not be loaded. Please try again later.</p>';
+    console.error(error);
+  }
+}
+
+function renderProducts(){
+  const search = document.getElementById("search").value.trim().toLowerCase();
+  const list = document.getElementById("productList");
+
   const filtered = products.filter(p =>
     (activeCategory === "All" || p.category === activeCategory) &&
-    p.name.toLowerCase().includes(search)
+    (p.name.toLowerCase().includes(search) ||
+     p.description.toLowerCase().includes(search))
   );
 
-  list.innerHTML = filtered.map((p) => `
+  if(!filtered.length){
+    list.innerHTML = '<p class="empty">No products found.</p>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(p => `
     <div class="product">
-      <div class="emoji">${p.emoji}</div>
-      <h3>${p.name}</h3>
-      <p>${p.description}</p>
-      <div class="price">Price: Confirm on WhatsApp</div>
-      <button onclick="addToCart('${p.name}')">Add to Cart</button>
+      <div class="emoji">${escapeHTML(p.emoji)}</div>
+      <h3>${escapeHTML(p.name)}</h3>
+      <p>${escapeHTML(p.description)}</p>
+      <div class="price">
+        ${p.price > 0 ? money(p.price) : "Price: Confirm on WhatsApp"}
+      </div>
+      <div class="stock ${p.available ? "" : "out"}">
+        ${p.available ? "✓ Available" : "Currently Out of Stock"}
+      </div>
+      <button
+        onclick="addToCart(${p.id})"
+        ${p.available ? "" : "disabled"}>
+        ${p.available ? "Add to Cart" : "Unavailable"}
+      </button>
     </div>
   `).join("");
-
-  if(!filtered.length) list.innerHTML = '<p class="empty">No products found.</p>';
 }
 
 function filterProducts(category,button){
   activeCategory = category;
-  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+
+  document.querySelectorAll(".categories button").forEach(b =>
+    b.classList.remove("active")
+  );
+
   button.classList.add("active");
   renderProducts();
 }
 
-function addToCart(name){
-  const existing = cart.find(item=>item.name===name);
-  if(existing) existing.quantity++;
-  else cart.push({name,quantity:1});
+function addToCart(id){
+  const product = products.find(p => p.id === id);
+
+  if(!product || !product.available){
+    alert("This product is currently unavailable.");
+    return;
+  }
+
+  const existing = cart.find(item => item.id === id);
+
+  if(existing){
+    existing.quantity++;
+  }else{
+    cart.push({
+      id:product.id,
+      quantity:1
+    });
+  }
+
   renderCart();
 }
 
-function removeFromCart(name){
-  cart = cart.filter(item=>item.name!==name);
+function changeQuantity(id,change){
+  const item = cart.find(item => item.id === id);
+  if(!item) return;
+
+  item.quantity += change;
+
+  if(item.quantity <= 0){
+    cart = cart.filter(item => item.id !== id);
+  }
+
+  renderCart();
+}
+
+function removeFromCart(id){
+  cart = cart.filter(item => item.id !== id);
   renderCart();
 }
 
 function renderCart(){
   const container = document.getElementById("cartItems");
+
   if(!cart.length){
     container.innerHTML = '<p class="empty">Your cart is empty.</p>';
-  }else{
-    container.innerHTML = cart.map(item=>`
-      <div class="cart-item">
-        <span>${item.name} × ${item.quantity}</span>
-        <button onclick="removeFromCart('${item.name}')">Remove</button>
-      </div>
-    `).join("");
+    document.getElementById("total").textContent = "Total: Rs. 0";
+    return;
   }
-  document.getElementById("total").textContent = "Total: Price confirmation on WhatsApp";
+
+  let total = 0;
+  let hasUnpricedItem = false;
+
+  container.innerHTML = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+
+    if(!product) return "";
+
+    if(product.price > 0){
+      total += product.price * item.quantity;
+    }else{
+      hasUnpricedItem = true;
+    }
+
+    const linePrice = product.price > 0
+      ? money(product.price * item.quantity)
+      : "Price to be confirmed";
+
+    return `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <strong>${escapeHTML(product.name)}</strong>
+          <small>${linePrice}</small>
+          <div class="quantity">
+            <button onclick="changeQuantity(${item.id},-1)">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQuantity(${item.id},1)">+</button>
+          </div>
+        </div>
+        <button onclick="removeFromCart(${item.id})">Remove</button>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("total").textContent =
+    "Total: " + money(total) +
+    (hasUnpricedItem ? " + items needing price confirmation" : "");
 }
 
 function placeOrder(){
@@ -286,28 +402,69 @@ function placeOrder(){
     alert("Please add products to your cart first.");
     return;
   }
+
   if(!name || !phone || !address){
     alert("Please enter your name, phone number and delivery address.");
     return;
   }
 
-  let message = "Assalam-o-Alaikum Kamal Sons Pharmacy!%0A%0AI want to place an order:%0A";
-  cart.forEach(item=>{
-    message += "%0A- " + encodeURIComponent(item.name) + " x " + item.quantity;
-  });
+  let message = "Assalam-o-Alaikum Kamal Sons Pharmacy!\n\n";
+  message += "I want to place an order:\n\n";
 
-  message += "%0A%0ACustomer Name: " + encodeURIComponent(name);
-  message += "%0APhone: " + encodeURIComponent(phone);
-  message += "%0ADelivery Address: " + encodeURIComponent(address);
-  if(notes) message += "%0ANotes: " + encodeURIComponent(notes);
-  message += "%0A%0AKindly confirm prices and availability.";
+  let total = 0;
+  let hasUnpricedItem = false;
 
-  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message,"_blank");
+  for(const item of cart){
+    const product = products.find(p => p.id === item.id);
+
+    if(!product || !product.available){
+      alert("One of your selected products is no longer available. Please review your cart.");
+      return;
+    }
+
+    message += product.name + " x " + item.quantity;
+
+    if(product.price > 0){
+      const lineTotal = product.price * item.quantity;
+      total += lineTotal;
+      message += " - " + money(lineTotal);
+    }else{
+      hasUnpricedItem = true;
+      message += " - Price confirmation required";
+    }
+
+    message += "\n";
+  }
+
+  message += "\n";
+
+  if(hasUnpricedItem){
+    message += "Priced items subtotal: " + money(total) + "\n";
+    message += "Some item prices need confirmation.\n";
+  }else{
+    message += "Order total: " + money(total) + "\n";
+  }
+
+  message += "\nCustomer Name: " + name;
+  message += "\nPhone: " + phone;
+  message += "\nDelivery Address: " + address;
+
+  if(notes){
+    message += "\nAdditional Instructions: " + notes;
+  }
+
+  message += "\n\nKindly confirm availability and delivery details.";
+
+  const whatsappURL =
+    "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL,"_blank");
 }
 
 document.getElementById("search").addEventListener("input",renderProducts);
-renderProducts();
-renderCart();
+
+loadProducts();
 </script>
 
 </body>
