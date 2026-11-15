@@ -224,22 +224,23 @@ async function loadProducts(){
     });
 
     if(!response.ok){
-      throw new Error("Products file could not be loaded.");
+      throw new Error("Products file could not be loaded. Status: " + response.status);
     }
 
     const data = await response.json();
 
     if(!Array.isArray(data)){
-      throw new Error("Products file format is incorrect.");
+      throw new Error("Products file must contain a JSON array.");
     }
 
     products = data.filter(p =>
       p &&
-      Number.isFinite(Number(p.id)) &&
+      p.id !== undefined &&
+      p.id !== null &&
       typeof p.name === "string" &&
       typeof p.category === "string"
     ).map(p => ({
-      id:Number(p.id),
+      id:String(p.id),
       name:p.name,
       category:p.category,
       emoji:p.emoji || "💊",
@@ -253,8 +254,8 @@ async function loadProducts(){
 
   }catch(error){
     list.innerHTML =
-      '<p class="empty">Products could not be loaded. Please try again later.</p>';
-    console.error(error);
+      '<p class="empty">Products could not be loaded. Please check products.json and try again.</p>';
+    console.error("Product loading error:", error);
   }
 }
 
@@ -264,8 +265,10 @@ function renderProducts(){
 
   const filtered = products.filter(p =>
     (activeCategory === "All" || p.category === activeCategory) &&
-    (p.name.toLowerCase().includes(search) ||
-     p.description.toLowerCase().includes(search))
+    (
+      p.name.toLowerCase().includes(search) ||
+      p.description.toLowerCase().includes(search)
+    )
   );
 
   if(!filtered.length){
@@ -278,14 +281,17 @@ function renderProducts(){
       <div class="emoji">${escapeHTML(p.emoji)}</div>
       <h3>${escapeHTML(p.name)}</h3>
       <p>${escapeHTML(p.description)}</p>
+
       <div class="price">
         ${p.price > 0 ? money(p.price) : "Price: Confirm on WhatsApp"}
       </div>
+
       <div class="stock ${p.available ? "" : "out"}">
         ${p.available ? "✓ Available" : "Currently Out of Stock"}
       </div>
+
       <button
-        onclick="addToCart(${p.id})"
+        onclick='addToCart(${JSON.stringify(p.id)})'
         ${p.available ? "" : "disabled"}>
         ${p.available ? "Add to Cart" : "Unavailable"}
       </button>
@@ -305,6 +311,8 @@ function filterProducts(category,button){
 }
 
 function addToCart(id){
+  id = String(id);
+
   const product = products.find(p => p.id === id);
 
   if(!product || !product.available){
@@ -318,7 +326,7 @@ function addToCart(id){
     existing.quantity++;
   }else{
     cart.push({
-      id:product.id,
+      id:id,
       quantity:1
     });
   }
@@ -327,6 +335,8 @@ function addToCart(id){
 }
 
 function changeQuantity(id,change){
+  id = String(id);
+
   const item = cart.find(item => item.id === id);
   if(!item) return;
 
@@ -340,6 +350,7 @@ function changeQuantity(id,change){
 }
 
 function removeFromCart(id){
+  id = String(id);
   cart = cart.filter(item => item.id !== id);
   renderCart();
 }
@@ -376,13 +387,15 @@ function renderCart(){
         <div class="cart-item-info">
           <strong>${escapeHTML(product.name)}</strong>
           <small>${linePrice}</small>
+
           <div class="quantity">
-            <button onclick="changeQuantity(${item.id},-1)">−</button>
+            <button onclick='changeQuantity(${JSON.stringify(item.id)},-1)'>−</button>
             <span>${item.quantity}</span>
-            <button onclick="changeQuantity(${item.id},1)">+</button>
+            <button onclick='changeQuantity(${JSON.stringify(item.id)},1)'>+</button>
           </div>
         </div>
-        <button onclick="removeFromCart(${item.id})">Remove</button>
+
+        <button onclick='removeFromCart(${JSON.stringify(item.id)})'>Remove</button>
       </div>
     `;
   }).join("");
