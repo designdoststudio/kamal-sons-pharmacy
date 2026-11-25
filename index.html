@@ -48,14 +48,27 @@ section{padding:28px 0}
 .products-area{background:#edf6f1;padding:30px 0}
 .controls{max-width:800px;margin:20px auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .controls input,.controls select{width:100%;padding:12px;border:1px solid #cbd9d0;border-radius:8px;font-size:15px;background:white;min-width:0}
-.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.product-card{padding:15px;display:flex;flex-direction:column;min-width:0}
+
+/* Responsive product grid */
+.product-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:13px;
+align-items:stretch;
+}
+.product-card{
+padding:15px;
+display:flex;
+flex-direction:column;
+min-width:0;
+overflow-wrap:anywhere;
+}
 .product-icon{font-size:34px;text-align:center;margin-bottom:7px}
 .product-card h3{font-size:16px;color:#075d42;margin:3px 0;line-height:1.4}
 .product-category{font-size:12px;color:#6a786f;margin:2px 0 7px}
 .product-description{font-size:13px;color:#46564c;margin:4px 0 10px;flex:1}
 .product-price{font-weight:bold;font-size:14px;color:#087c59;margin:5px 0}
-.product-card .btn{font-size:12px;text-align:center;padding:10px 7px;margin:8px 0 0}
+.product-card .btn{font-size:12px;text-align:center;padding:10px 7px;margin:8px 0 0;width:100%}
 .product-status{font-size:12px;padding:8px;border-radius:6px;margin-top:8px;text-align:center}
 .status-order{background:#e2f5e9;color:#075d42}
 .status-visit{background:#fff2dc;color:#805313}
@@ -79,16 +92,32 @@ footer{background:#064b37;color:white;text-align:center;padding:25px 12px;margin
 footer a{color:white;text-decoration:none;display:inline-block;margin:5px 8px}
 footer a:hover{text-decoration:underline}
 .disclaimer{font-size:12px;color:#637168;margin-top:14px}
-@media(min-width:650px){
-.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.hero{padding:55px 20px}
-.hero h1{font-size:36px}
-}
-@media(min-width:950px){.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:420px){
+
+/* Mobile: always two product columns */
+@media(max-width:767px){
+.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .controls{grid-template-columns:1fr}
 .hero h1{font-size:25px}
 nav a{margin:4px 5px;font-size:12px}
+.product-card{padding:12px}
+.product-card h3{font-size:15px}
+.product-description{font-size:12px}
+.product-card .btn{font-size:11px;padding:9px 5px}
+.faq-grid{grid-template-columns:1fr}
+}
+
+/* Tablet */
+@media(min-width:768px) and (max-width:1099px){
+.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hero{padding:48px 20px}
+.hero h1{font-size:33px}
+}
+
+/* Desktop */
+@media(min-width:1100px){
+.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.hero{padding:55px 20px}
+.hero h1{font-size:36px}
 }
 </style>
 </head>
@@ -439,18 +468,6 @@ return {
 });
 }
 
-/*
-Online ordering is denied by default.
-
-A product can show the online order button only when:
-1. available === true
-2. onlineOrderAllowed === true
-3. prescriptionRequired is not true
-
-The pharmacy must verify the exact product and its
-applicable Pakistani classification before enabling it.
-*/
-
 function isEligibleForOnlineOrder(product){
 return product.available === true &&
 product.onlineOrderAllowed === true &&
@@ -611,7 +628,6 @@ if(!Array.isArray(products)){
 throw new Error("Invalid products data");
 }
 
-/* Only products explicitly marked available:true are displayed. */
 allProducts = products.filter(product =>
 product &&
 product.available === true &&
