@@ -5,107 +5,119 @@
     "name": "Panadol",
     "category": "Medicines",
     "emoji": "💊",
-    "description": "Pain and fever relief. Confirm pack, strength and price on WhatsApp.",
+    "description": "Contact the pharmacy for product details, availability and pack information.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "disprin",
     "name": "Disprin",
     "category": "Medicines",
     "emoji": "💊",
-    "description": "Disprin tablets. Confirm pack and price on WhatsApp.",
+    "description": "Contact the pharmacy for product details, availability and pack information.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "calpol",
     "name": "Calpol",
     "category": "Medicines",
     "emoji": "🧴",
-    "description": "Calpol range. Confirm formulation, pack and price on WhatsApp.",
+    "description": "Contact the pharmacy for product details, availability and pack information.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "ors",
     "name": "ORS",
     "category": "Healthcare",
-    "emoji": "🥤",
-    "description": "Oral rehydration salts. Confirm available pack and price.",
+    "emoji": "💧",
+    "description": "Oral rehydration salts. Contact the pharmacy for available brands and pack details.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "vitamin-d",
     "name": "Vitamin D",
     "category": "Vitamins",
     "emoji": "☀️",
-    "description": "Vitamin D products. Confirm brand, strength and price.",
+    "description": "Contact the pharmacy for available brands, strengths and pack details.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "multivitamins",
     "name": "Multivitamins",
     "category": "Vitamins",
     "emoji": "💊",
-    "description": "Multivitamin products. Confirm brand and price.",
+    "description": "Contact the pharmacy for available brands and product information.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "baby-diapers",
     "name": "Baby Diapers",
     "category": "Baby Care",
     "emoji": "👶",
-    "description": "Baby diaper range. Confirm brand and size.",
+    "description": "Contact the pharmacy for available brands and sizes.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "baby-wipes",
     "name": "Baby Wipes",
     "category": "Baby Care",
     "emoji": "🧻",
-    "description": "Baby wipes. Confirm brand and pack size.",
+    "description": "Contact the pharmacy for available brands and pack sizes.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "hand-sanitizer",
     "name": "Hand Sanitizer",
     "category": "Personal Care",
     "emoji": "🧴",
-    "description": "Hand hygiene products. Confirm brand and pack size.",
+    "description": "Contact the pharmacy for available brands and bottle sizes.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "face-wash",
     "name": "Face Wash",
     "category": "Personal Care",
     "emoji": "🧼",
-    "description": "Face wash products. Confirm brand and pack size.",
+    "description": "Contact the pharmacy for available brands and product details.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "thermometer",
     "name": "Thermometer",
     "category": "Medical Devices",
     "emoji": "🌡️",
-    "description": "Digital thermometer. Confirm model and price.",
+    "description": "Contact the pharmacy for available thermometer types and details.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   },
   {
     "id": "bp-monitor",
     "name": "Blood Pressure Monitor",
     "category": "Medical Devices",
     "emoji": "🩺",
-    "description": "Blood pressure monitoring device. Confirm model and price.",
+    "description": "Contact the pharmacy for available models and product details.",
     "price": 0,
-    "available": true
+    "available": true,
+    "onlineOrderAllowed": false
   }
 ]
