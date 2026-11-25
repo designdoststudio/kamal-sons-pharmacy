@@ -65,59 +65,65 @@
     "name": "Baby Diapers",
     "category": "Baby Care",
     "emoji": "👶",
-    "description": "Contact the pharmacy for available brands and sizes.",
+    "description": "Order baby diapers through WhatsApp. Confirm brand, size, stock and final price with the pharmacy.",
     "price": 0,
     "available": true,
-    "onlineOrderAllowed": false
+    "onlineOrderAllowed": true,
+    "prescriptionRequired": false
   },
   {
     "id": "baby-wipes",
     "name": "Baby Wipes",
     "category": "Baby Care",
     "emoji": "🧻",
-    "description": "Contact the pharmacy for available brands and pack sizes.",
+    "description": "Order baby wipes through WhatsApp. Confirm brand, pack size, stock and final price with the pharmacy.",
     "price": 0,
     "available": true,
-    "onlineOrderAllowed": false
+    "onlineOrderAllowed": true,
+    "prescriptionRequired": false
   },
   {
     "id": "hand-sanitizer",
     "name": "Hand Sanitizer",
     "category": "Personal Care",
     "emoji": "🧴",
-    "description": "Contact the pharmacy for available brands and bottle sizes.",
+    "description": "Order hand sanitizer through WhatsApp. Confirm brand, bottle size, stock and final price with the pharmacy.",
     "price": 0,
     "available": true,
-    "onlineOrderAllowed": false
+    "onlineOrderAllowed": true,
+    "prescriptionRequired": false
   },
   {
     "id": "face-wash",
     "name": "Face Wash",
     "category": "Personal Care",
     "emoji": "🧼",
-    "description": "Contact the pharmacy for available brands and product details.",
+    "description": "Order face wash through WhatsApp. Confirm brand, product details, stock and final price with the pharmacy.",
     "price": 0,
     "available": true,
-    "onlineOrderAllowed": false
+    "onlineOrderAllowed": true,
+    "prescriptionRequired": false
   },
   {
     "id": "thermometer",
     "name": "Thermometer",
     "category": "Medical Devices",
     "emoji": "🌡️",
-    "description": "Contact the pharmacy for available thermometer types and details.",
+    "description": "Order thermometer through WhatsApp. Confirm model, type, stock and final price with the pharmacy.",
     "price": 0,
     "available": true,
-    "onlineOrderAllowed": false
+    "onlineOrderAllowed": true,
+    "prescriptionRequired": false
   },
   {
     "id": "bp-monitor",
     "name": "Blood Pressure Monitor",
     "category": "Medical Devices",
     "emoji": "🩺",
-    "description": "Contact the pharmacy for available models and product details.",
+    "description": "Order blood pressure monitor through WhatsApp. Confirm model, stock, warranty and final price with the pharmacy.",
     "price": 0,
     "available": true,
-    "onlineOrderAllowed": false
+    "onlineOrderAllowed": true,
+    "prescriptionRequired": false
   }
 ]
